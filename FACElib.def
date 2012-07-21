@@ -1,0 +1,10 @@
+; FACElib.def : モジュール パラメータを宣言します。
+
+LIBRARY      "FACElib.DLL"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer	PRIVATE
+	FACECreate

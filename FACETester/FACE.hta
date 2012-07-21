@@ -1,0 +1,52 @@
+<html>
+<head>
+</head>
+<body>
+<script language="VBScript">
+Option Explicit
+
+' FACEの起動と実行ループ測定のサンプルプログラム
+Dim FACE , Tick , Loops , Result , OldResult
+Set FACE = CreateObject("FACE")
+
+' FACEについての処理
+With FACE
+	.Logging
+    ' 起動
+    .wDefault ("FACELib - Component Object Model - On Visual BASIC")
+	.Graphics 3
+    .wResizeTo 400, 300
+    ' 変数初期化
+    Tick = FACE.GetTick: Loops = 1: Result = 0: OldResult = 0
+    'メインループ
+    Do
+        ' 背景更新
+        .DrawBox 0, 0, 400, 300, &HFFFFFF, True
+        .DSetFillStyle 4
+        .DrawBox 0, 0, 640, 480, &HE0E0E0, True
+        .DSetFillStyle -1
+        ' テキスト内容の更新
+        .DSetTextFont 20, 1
+        .DrawString 200, 150, "FACE Library running on Visual BASIC", 2, &HA0A0A0 
+        .DSetTextFont 12, 1
+        .DrawString 40, 40, "Processing now " &Loops & "Loops", , &H808080
+        .DrawString 70, 65, Result & " Sec / 100Loops", , &H808080
+        .DrawString 70, 90, OldResult & " Sec / 100Loops", , &H808080
+        '速度計算
+        Loops = Loops + 1
+        Result = (FACE.GetTick - Tick)
+        If (Loops > 100) Then
+            Loops = 0
+            OldResult = (FACE.GetTick - Tick): Tick = FACE.GetTick
+        End If
+        ' 再描画
+        .Refresh
+        ' メッセージ処理と、終了を要求させたら無限ループから脱出
+        If .DoEvents Then Exit Do
+    Loop
+End With
+</script>
+FACEApplication End.
+</body>
+</html>
+

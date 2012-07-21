@@ -1,0 +1,237 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "1 TYPELIB ""FACElib.tlb""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,2,0,0
+ PRODUCTVERSION 1,2,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041104b0"
+        BEGIN
+            VALUE "Comments", "FACELibrary\0"
+            VALUE "CompanyName", "CReN\0"
+            VALUE "FileDescription", "FACE Ver 1.1\0"
+            VALUE "FileVersion", "1, 2, 0, 0\0"
+            VALUE "InternalName", "FACE\0"
+            VALUE "LegalCopyright", "Copyright 2004 CReN AllRights Reserved\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OLESelfRegister", "TRUE\0"
+            VALUE "OriginalFilename", "FACE.dll\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "FACE\0"
+            VALUE "ProductVersion", "1, 2, 0, 0\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x411, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_FACE                REGISTRY DISCARDABLE    "FACE.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_SPRITEVIEWER DIALOGEX 0, 0, 208, 108
+STYLE DS_NOIDLEMSG | DS_SETFOREGROUND | DS_3DLOOK | DS_NOFAILCREATE | 
+    DS_CONTROL | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_TOOLWINDOW | WS_EX_CLIENTEDGE | WS_EX_CONTROLPARENT
+CAPTION "FACE SpriteInspector Ver 1.00"
+FONT 8, "ＭＳ Ｐゴシック", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,153,2,47,13,BS_FLAT
+    CONTROL         "Static",IDC_LABEL,"Static",SS_LEFTNOWORDWRAP | 
+                    SS_NOPREFIX | SS_NOTIFY,67,2,46,16
+    CONTROL         "Slider1",IDC_SLIDER,"msctls_trackbar32",TBS_NOTICKS | 
+                    WS_TABSTOP,2,2,64,13
+    CONTROL         "MASK",IDC_MASKCHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,117,2,32,11
+END
+
+IDD_DOWNPROGRESS DIALOGEX 0, 0, 163, 82
+STYLE DS_NOIDLEMSG | DS_SETFOREGROUND | DS_3DLOOK | DS_NOFAILCREATE | 
+    DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW | WS_EX_CLIENTEDGE
+CAPTION "FACE DownloadManager Ver 1.00"
+FONT 10, "ＭＳ Ｐゴシック", 0, 0, 0x1
+BEGIN
+    LTEXT           "",IDC_Down,9,9,145,25,SS_NOPREFIX
+    LTEXT           "",IDC_Down2,9,41,145,9
+    CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,
+                    23,63,120,7
+    LTEXT           "",IDC_Down3,9,52,145,9
+END
+
+IDD_ENCODEPROGRESS DIALOGEX 0, 0, 163, 35
+STYLE DS_NOIDLEMSG | DS_SETFOREGROUND | DS_3DLOOK | DS_NOFAILCREATE | 
+    DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW | WS_EX_CLIENTEDGE
+CAPTION "FACE Encode進行状況"
+FONT 10, "ＭＳ Ｐゴシック", 0, 0, 0x1
+BEGIN
+    CTEXT           "エンコード中です。しばらくお待ちください。",IDC_Encode,
+                    0,0,163,10,SS_NOPREFIX
+    CONTROL         "Progress1",IDC_DownProgress,"msctls_progress32",
+                    PBS_SMOOTH | WS_BORDER,0,26,163,7
+    CONTROL         "エンコード中です。しばらくお待ちください。",IDC_Prog,
+                    "Static",SS_SIMPLE | SS_NOPREFIX | WS_GROUP,0,14,163,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_SPRITEVIEWER, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 206
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 106
+    END
+
+    IDD_DOWNPROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 9
+        RIGHTMARGIN, 154
+        TOPMARGIN, 9
+        BOTTOMMARGIN, 70
+    END
+
+    IDD_ENCODEPROGRESS, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 33
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_LOG_MODEOUT         "指定モード　：　%d"
+    IDS_ERR_PARAM           "正しくない引数 %d が渡されました。"
+    IDS_ERR_HWND            "wDefaultでウインドウが作成されていません。"
+    IDS_ERR_EMPTY           "正しくないID : %d が指定されました。指定されたIDは使用されていません。"
+    IDS_ERR_NULL            "正しくない引数 NULL が渡されました。"
+    IDS_LOG_DDRAWFAILED     "DirectDraw の初期化失敗のためGDIModeで動作します。"
+    IDS_LOG_LOADFROMFILE    "指定ID　：　%d\n使用ファイル　：　%s"
+    IDS_LOG_CREATE          "指定ID　： %d"
+    IDS_ERR_FILENOTFOUND    "指定したファイルが 見つかりません。"
+    IDS_ERR_INVALIDFILE     "指定したファイルは 使用できません。"
+    IDS_LOG_IMAGEINFO       "フォーマット -> %s\nサイズ（ %d ， %d ）"
+    IDS_LOG_DSOUNDFAILED    "DirectSound の初期化失敗のためSoundは機能しません"
+    IDS_LOG_SOUNDINFO       "フォーマット -> %s"
+    IDS_LOG_BUFFER_STREAM   "\tストリーミングバッファ( Size of Buffer %li )"
+    IDS_LOG_BUFFER_STATIC   "\tスターティックバッファ( Size of Buffer %li )"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ERR_ALLOC           "%s用に %x バイトのメモリを確保しようとして失敗しました。"
+    IDS_ERR_MULTI           "wDefaultでウインドウはすでに準備されています。"
+    IDS_LOG_MCISTRING       "MCICommand -> %s"
+    IDS_LOG_MCIERROR        "MCICallBack -> %s"
+    IDS_ERR_CANTDOWNLOAD    "指定したURLからDOWNLOADできません。"
+    IDS_LOG_DOWNLOAD        "読み込み先URL　%s"
+    IDS_LOG_FILEIO          "使用ファイル %s"
+    IDS_LOG_SURFACEDESC     "サーフェス情報\n\tSize %d * %d"
+END
+
+#endif    // 日本語 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "FACElib.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

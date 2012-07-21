@@ -1,0 +1,128 @@
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(8F67CBF4-A0A3-4144-9985-AEF9623FD317),
+		dual,
+		helpstring("IFACE ver 1.2 Interface"),
+		pointer_default(unique)
+	]
+	interface IFACE : IDispatch
+	{
+[id(1), helpstring("FACEウインドウをデフォルトの設定で作成します")] 
+	HRESULT wDefault( [in] BSTR ProgramName );
+[id(3), helpstring("FACEを実行状態にします")] HRESULT Run( );
+[id(4), helpstring("FACEに貯まったメッセージキューを処理します")] HRESULT DoEvents([out,retval] BOOL *StillRunning );
+[id(5), helpstring("FACEに関連づけられているウインドウのハンドルを返します")] HRESULT wGetHandle([out,retval] LONG *HandleToWindow );
+[id(6), helpstring("FACEウインドウサイズを絶対指定で変更します")] HRESULT wResizeTo([in]LONG w, [in]LONG h );
+[id(7), helpstring("FACEウインドウサイズを相対指定で変更します")] HRESULT wResizeBy([in]LONG rw, [in]LONG rh );
+[id(8), helpstring("FACEウインドウサイズを絶対指定で変更します")] HRESULT wMoveTo([in]LONG x,[in]LONG y);
+[id(9), helpstring("FACEウインドウサイズを相対指定で変更します")] HRESULT wMoveBy([in]LONG rx , [in]LONG ry);
+[id(10), helpstring("ユーザーに情報を提示するためのダイアログボックスを作成します")] HRESULT wShowMessage([in]BSTR Message,[in]BSTR Caption);
+[id(11), helpstring("はい、いいえボタンのあるダイアログボックスを作成します")] HRESULT wYesNoMessage([in]BSTR Message,[in]BSTR Caption,[out,retval]BOOL *YesNo);
+[propput, id(13), helpstring("FACEのウインドウキャプションを設定します")] HRESULT wCaption([in] BSTR newVal);
+[propget, id(14), helpstring("ウインドウの表示状態を設定します")] HRESULT wVisible([out, retval] BOOL *pVal);
+[propput, id(14), helpstring("ウインドウの表示状態を設定します")] HRESULT wVisible([in] BOOL newVal);
+[propget, id(15), helpstring("ウインドウが選択可能かを設定します")] HRESULT wEnable([out, retval] BOOL *pVal);
+[propput, id(15), helpstring("ウインドウが選択可能かを設定します")] HRESULT wEnable([in] BOOL newVal);
+[propget, id(16), helpstring("ウインドウが最大化ボタンを持つか設定します")] HRESULT wHasMaxBtn([out, retval] BOOL *pVal);
+[propput, id(16), helpstring("ウインドウが最大化ボタンを持つか設定します")] HRESULT wHasMaxBtn([in] BOOL newVal);
+[propget, id(17), helpstring("ウインドウが最小化ボタンを持つか設定します")] HRESULT wHasMinBtn([out, retval] BOOL *pVal);
+[propput, id(17), helpstring("ウインドウが最小化ボタンを持つか設定します")] HRESULT wHasMinBtn([in] BOOL newVal);
+[propget, id(18), helpstring("ウインドウが閉じるボタンを持つか設定します")] HRESULT wHasCloseBtn([out, retval] BOOL *pVal);
+[propput, id(18), helpstring("ウインドウが閉じるボタンを持つか設定します")] HRESULT wHasCloseBtn([in] BOOL newVal);
+[propget, id(19), helpstring("ウインドウがタイトルバーを持つか設定します")] HRESULT wHasTitleBar([out, retval] BOOL *pVal);
+[propput, id(19), helpstring("ウインドウがタイトルバーを持つか設定します")] HRESULT wHasTitleBar([in] BOOL newVal);
+[propget, id(20), helpstring("ウインドウの表示サイズ変更可能属性を設定します")] HRESULT wResizeable([out, retval] BOOL *pVal);
+[propput, id(20), helpstring("ウインドウの表示サイズ変更可能属性を設定します")] HRESULT wResizeable([in] BOOL newVal);
+[id(22), helpstring("タイマーを起動します。")] HRESULT wRunTimer([in]LONG Interval);
+[id(23), helpstring("FACEが起動してから何ミリ秒たったかを取得できます")] HRESULT GetTick([out,retval]LONG *Tick);
+[propget, id(38), helpstring("ｳｲﾝﾄﾞｳﾌﾟﾛｼｰｼﾞｬｰを経由できます")] HRESULT wProcedure([out, retval] LONG *pVal);
+[propput, id(38), helpstring("ｳｲﾝﾄﾞｳﾌﾟﾛｼｰｼﾞｬｰを経由できます")] HRESULT wProcedure([in] LONG newVal);
+[id(39), helpstring("FACEウインドウを消去します")] HRESULT wDestroy();
+[propget, id(40), helpstring("FACEウインドウが枠線を持つかを設定します")] HRESULT wHasBorder([out, retval] BOOL *pVal);
+[propput, id(40), helpstring("FACEウインドウが枠線を持つかを設定します")] HRESULT wHasBorder([in] BOOL newVal);
+[propget, id(42), helpstring("常に手前に")] HRESULT wTopMost([out, retval] BOOL *pVal);
+[propput, id(42), helpstring("常に手前に")] HRESULT wTopMost([in] BOOL newVal);
+[propget, id(43), helpstring("画面更新レート(FramesPerSecond)を設定します")] HRESULT SoftwareFPS([out, retval] LONG *pVal);
+[propput, id(43), helpstring("画面更新レート(FramesPerSecond)を設定します")] HRESULT SoftwareFPS([in] LONG newVal);
+[propget, id(44), helpstring("ＦＰＳを維持できているかのフラグが入ります。フラグは常に変動します")] HRESULT KeepFPS([out, retval] BOOL *pVal);
+[id(45), helpstring("スプライトから別スプライトに画像転送を行います")] HRESULT Blt([in]LONG FromID , [in]LONG FromX ,[in] LONG FromY , [in]LONG w , [in]LONG h, [in]LONG ToID ,[in] LONG ToX ,[in] LONG ToY );
+[id(46), helpstring("拡大縮小をサポートした画像転送メソッドです")] HRESULT BltStretch([in]LONG FromID , [in]LONG FromX ,[in] LONG FromY , [in]LONG FromW , [in]LONG FromH, [in]LONG ToID ,[in] LONG ToX ,[in] LONG ToY , [in]LONG ToW ,[in]LONG ToH );
+[id(47), helpstring("半透明処理をサポートした画像転送メソッドです")] HRESULT BltAlphaBlend([in]LONG FromID , [in]LONG FromX ,[in] LONG FromY , [in]LONG w , [in]LONG h, [in]LONG ToID ,[in] LONG ToX ,[in] LONG ToY , [in]LONG lAlphaBlend);
+[id(48), helpstring("単純な四角形を描画します")] HRESULT DrawBox([in]LONG x ,[in] LONG y ,[in] LONG w ,[in] LONG h , [in]LONG Color , [in]BOOL Fills ,[in,defaultvalue(0)] LONG SpriteID);
+[id(49), helpstring("多角形を描画します。回転もサポートします")] HRESULT DrawPolygon([in]LONG x ,[in] LONG  y ,[in]LONG wr , [in]LONG hr ,[in]LONG Polygon , [in]LONG Rotate ,[in]LONG Color ,[in] BOOL Fills , [in,defaultvalue(0)] LONG SpriteID);
+[id(50), helpstring("線分を描画します")] HRESULT DrawLine([in]LONG x1, [in]LONG y1 , [in]LONG x2, [in]LONG y2 , [in]LONG Color , [in,defaultvalue(0)] LONG SpriteID);
+[id(51), helpstring("終点から線を引きます")] HRESULT DrawLineFromLP([in] LONG x, [in]LONG y ,[in] LONG Color ,[in,defaultvalue(0)] LONG SpriteID);
+[id(52), helpstring("終点を設定します。終点はDrawLineFromLPで使用します")] HRESULT DSetLP([in] LONG x,[in] LONG y , [in,defaultvalue(0)] LONG SpriteID);
+[id(53), helpstring("指定した点の色をへんこうします")] HRESULT DrawPixel([in]LONG x, [in]LONG  y , [in]LONG Color ,[in,defaultvalue(0)] LONG SpriteID);
+[id(54), helpstring("指定した点の色を取得します")] HRESULT DGetPixel([in]LONG x, [in]LONG  y , [in,defaultvalue(0)] LONG SpriteID, [out, retval] LONG *pVal);
+[id(55), helpstring("角の丸い四角形を描画します")] HRESULT DrawRoundBox([in]LONG x , [in]LONG y , [in]LONG w , [in]LONG h , [in]LONG Round , [in]LONG Color , [in]BOOL Fills , [in,defaultvalue(0)] LONG SpriteID);
+[id(56), helpstring("円を描画します")] HRESULT DrawCircle([in]LONG x, [in]LONG y , [in]LONG Radius , [in]LONG StartR , [in]LONG EndR , [in]LONG Color , [in]BOOL Fills , [in,defaultvalue(0)] LONG SpriteID );
+[id(57), helpstring("楕円を描画します")] HRESULT DrawEllipse([in]LONG x, [in]LONG y , [in]LONG wr , [in]LONG hr , [in]LONG StartR , [in]LONG EndR , [in]LONG Color , [in]BOOL Close , [in,defaultvalue(0)] LONG SpriteID );
+[id(58), helpstring("囲まれた指定した色の部分を塗りつぶします")] HRESULT DrawFill([in]LONG x , [in]LONG y , [in]LONG Color , [in,defaultvalue(0)] LONG SpriteID);
+[id(59), helpstring("文字を描画します")] HRESULT DrawString([in]LONG x, [in]LONG y , [in]BSTR Text,[in,defaultvalue(0)]LONG Align ,[in]LONG Color , [in,defaultvalue(0)] LONG SpriteID);
+[id(60), helpstring("DrawStringで使用するフォントを設定します")] HRESULT DSetTextFont([in,defaultvalue(0xFF)]LONG Size , [in,defaultvalue(0xFF)]BOOL Bold , [in,defaultvalue(0xFF)]BOOL Italic , [in,defaultvalue(0xFF)]BOOL UnderLine , [in,defaultvalue(0xFF)]BOOL Strike , [in,defaultvalue("default")]BSTR FontName , [in,defaultvalue(0)] LONG SpriteID);
+[id(61), helpstring("DrawStringの文字ごとの空白を設定します。2Byte文字には効果がありません")] HRESULT DSetTextSpace([in]LONG lSpace , [in,defaultvalue(0)] LONG SpriteID );
+[id(62), helpstring("描画更新を行います")] HRESULT Refresh();
+[id(63), helpstring("Spriteの状態を設定します")] HRESULT SpriteState([in]LONG SpriteID , [in]BOOL IsEnable);
+[id(64), helpstring("スプライトのサイズを設定します")] HRESULT SpriteResize([in]LONG SpriteID , [in]LONG cx , [in]LONG cy);
+[id(65), helpstring("BMPファイルからスプライトを作成します")] HRESULT SpriteLoadFromFile([in]LONG SpriteID , BSTR FileName );
+[id(66), helpstring("Spriteの中身を別Spriteにコピーします")] HRESULT SpriteCopy([in]LONG FromID , [in]LONG ToID);
+[id(67), helpstring("スプライトの画像をそのまま指定位置に貼り付けます")] HRESULT SpritePaste([in]LONG FromID , [in]LONG ToID , [in]LONG x , [in]LONG y);
+[id(68), helpstring("スプライトビューワーを起動します")] HRESULT SpriteView();
+[propget, id(69), helpstring("マウスのX座標を制御します")] HRESULT MouseX([out, retval] LONG *pVal);
+[propput, id(69), helpstring("マウスのX座標を制御します")] HRESULT MouseX([in] LONG newVal);
+[propget, id(70), helpstring("マウスのY座標を制御します")] HRESULT MouseY([out, retval] LONG *pVal);
+[propput, id(70), helpstring("マウスのY座標を制御します")] HRESULT MouseY([in] LONG newVal);
+[id(71), helpstring("キー入力を判別します")] HRESULT InCheck([in]short KeyCode, [out, retval] BOOL *pVal);
+[id(72), helpstring("以前にInCheckが呼び出されたとき、キーが押されていたか判定します")] HRESULT InCheckPrev([in]short KeyCode, [out, retval] BOOL *pVal);
+[id(73), helpstring("現在のファイルの内容をクリアライズします")] HRESULT fClear();
+[id(74), helpstring("ファイルに文字列を書き込みます")] HRESULT fWriteString([in] BSTR Category,[in]BSTR KeyName,[in]BSTR Data);
+[id(75), helpstring("ファイルに数値を書き込みます")] HRESULT fWriteInteger([in]BSTR Category ,[in]BSTR KeyName , [in]LONG Data);
+[id(76), helpstring("ファイルから文字列を読み込みます")] HRESULT fReadString([in]BSTR Categoly , [in]BSTR KeyName , [in] BSTR Default , [in,out] BSTR lpBuffer);
+[id(77), helpstring("ファイルから数値を読み込みます")] HRESULT fReadInteger([in]BSTR Category , [in]BSTR KeyName , [in]LONG Defaults,[in,out]LONG *pVal);
+[id(78), helpstring("ファイルを開きます")] HRESULT fOpen( [in]BSTR FileName );
+[id(79), helpstring("塗りつぶしオプションを指定します")] HRESULT DSetFillStyle(  [in] LONG newVal,[in,defaultvalue(0)] LONG SpriteID);
+[id(80), helpstring("実線のスタイルを設定します")] HRESULT DSetLineStyle( [in] LONG newVal, [in,defaultvalue(0) ] LONG SpriteID);
+[id(81), helpstring("描画に使用するモードを設定します")] HRESULT Graphics( [in]LONG lGraphMode );
+[propget, id(86), helpstring("イベントハンドラ、サーフェスがロストしたときに呼び出されます")] HRESULT OnSurfaceLost([out, retval] LONG *pVal);
+[propput, id(86), helpstring("イベントハンドラ、サーフェスがロストしたときに呼び出されます")] HRESULT OnSurfaceLost([in] LONG newVal);
+[id(87), helpstring("描画時に通過する色を指定できます")] HRESULT DSetColorKey([in]LONG Color ,[in]LONG Non_Zero_SpriteID);
+[id(89), helpstring("スプライトに対してラスタオペレーションモードを設定します")] 
+	HRESULT DSetRasterOP([in] LONG lRasterOP , [in,defaultvalue(0)]LONG SpriteID);
+[id(90), helpstring("スプライトに対してマップモードを設定します")] 
+	HRESULT DSetMapMode ([in] LONG lMapMode , [in,defaultvalue(0)]LONG SpriteID);
+[id(91), helpstring("スプライトの原点となる座標を設定します")] HRESULT DSetOrigin([in]LONG X,[in]LONG Y , [in,defaultvalue(0)]LONG SpriteID) ;
+[id(92), helpstring("サウンドモードを変更します")] HRESULT Sound( [in]LONG lSoundMode);
+[id(94), helpstring("サウンドバッファに音楽メディアを取り込みます" )] HRESULT Snd_Open([in] LONG BufferID ,[in]BSTR FileName );
+[id(95), helpstring("サウンドバッファを再生状態にします")] HRESULT Snd_Play([in]LONG BufferID, [in,defaultvalue(0)]LONG ShowDialog);
+[id(96), helpstring("サウンドバッファを永久再生状態にします")] HRESULT Snd_LoopPlay([in]LONG BufferID, [in,defaultvalue(0)]LONG ShowDialog);
+[id(97), helpstring("サウンドバッファを停止状態にします")] HRESULT Snd_Stop([in]LONG BufferID);
+[id(98), helpstring("インターネットよりFACE共有ディレクトリにファイルをダウンロードします")] HRESULT Download([in]BSTR URL , [in]BSTR FileName );
+[id(100), helpstring("サウンドバッファを中断状態、もしくは再生状態します")] HRESULT Snd_Pause( [in]BOOL Play , [in]LONG BufferID );
+[id(109), helpstring("GetTickをリセットします")] HRESULT TickReset();
+[id(110), helpstring("FACEのバージョンを取得します")] HRESULT GetFACEVer( [out,retval]LONG *Ret);
+[id(111), helpstring("ﾒｿｯﾄﾞ mci")] HRESULT mci([in] BSTR CMDStr , [in] BSTR FilePath ,[in]BSTR Optional);
+
+	};
+
+[
+	uuid(9873C60F-B912-4D2A-BD23-23CA1AC2263B),
+	version(1.2),
+	helpstring(" -=-= FACE Library -=-= Ver 1.2")
+]
+library FACELIB
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(D07551AA-AB43-4C28-A08A-B9E3B74E93DF),
+		helpstring("FACE Class")
+	]
+	coclass FACE
+	{
+		[default] interface IFACE;
+	};
+};

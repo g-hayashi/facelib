@@ -1,0 +1,26 @@
+HKCR
+{
+	FACE.1 = s 'FACE Class'
+	{
+		CLSID = s '{D07551AA-AB43-4C28-A08A-B9E3B74E93DF}'
+	}
+	FACE = s 'FACE Class'
+	{
+		CLSID = s '{D07551AA-AB43-4C28-A08A-B9E3B74E93DF}'
+		CurVer = s 'FACE.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {D07551AA-AB43-4C28-A08A-B9E3B74E93DF} = s 'FACE Class'
+		{
+			ProgID = s 'FACE.1'
+			VersionIndependentProgID = s 'FACE'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{9873C60F-B912-4D2A-BD23-23CA1AC2263B}'
+		}
+	}
+}
